@@ -1,0 +1,67 @@
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+coverage/
+
+# Data and model artifacts
+data/
+datasets/
+raw/
+artifacts/
+models/
+checkpoints/
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.pt
+*.pth
+*.bin
+
+# Runtime output
+logs/
+tmp/
+temp/
+*.log
+*.sqlite
+*.db
+
+# Archives and backups
+*.zip
+*.tar
+*.tar.gz
+*.bak
+*.backup
+*.patch
+
+# Large media exports
+*.mp4
+*.mov
+*.webm
