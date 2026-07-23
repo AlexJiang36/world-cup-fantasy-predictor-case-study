@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Fantasy Decision Flow</title>
+  <desc id="desc">Public-safe fantasy decision flow for the World Cup Fantasy Predictor, showing projection production, decision services, and recommendation plus saved squad state.</desc>
+  <defs>
+    <style>
+      .title { font: 700 34px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #111827; }
+      .subtitle { font: 400 17px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #374151; }
+      .lane-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #334155; }
+      .note { font: 400 15px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .card-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #1f2937; }
+      .card-text { font: 400 13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .small-label { font: 700 14px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .lane { fill: #fbfdff; stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 8; rx: 24; }
+      .card { fill: #f8fbff; stroke: #adc3df; stroke-width: 2; rx: 18; }
+      .arrow { stroke: #7b8ea8; stroke-width: 2.35; fill: none; marker-end: url(#arrowhead); stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 9 3, 0 6" fill="#7b8ea8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="1040" fill="#ffffff"/>
+
+  <text x="58" y="72" class="title">Fantasy Decision Flow</text>
+  <line x1="58" y1="96" x2="150" y2="96" stroke="#7f98b8" stroke-width="6" stroke-linecap="round"/>
+  <text x="58" y="144" class="subtitle">Public-safe flow from future-facing player projections into transfer targets, model-squad decisions, and persistent squad state.</text>
+
+  <rect x="24" y="182" width="1752" height="180" class="lane"/>
+  <text x="56" y="214" class="lane-title">Projection production</text>
+
+  <rect x="24" y="392" width="1752" height="340" class="lane"/>
+  <text x="56" y="424" class="lane-title">Decision services</text>
+
+  <rect x="24" y="762" width="1752" height="248" class="lane"/>
+  <text x="56" y="794" class="lane-title">Recommendation and saved state</text>
+
+  <!-- Projection production -->
+  <g transform="translate(72,246)">
+    <rect width="270" height="84" class="card"/>
+    <text x="135" y="34" text-anchor="middle" class="card-title">Base Future Projection</text>
+    <text x="135" y="56" text-anchor="middle" class="card-text">fixture, role, minutes, and scoring context</text>
+  </g>
+  <g transform="translate(392,246)">
+    <rect width="290" height="84" class="card"/>
+    <text x="145" y="34" text-anchor="middle" class="card-title">Model Selection &amp; Calibration</text>
+    <text x="145" y="56" text-anchor="middle" class="card-text">registry annotation and production calibration</text>
+  </g>
+  <g transform="translate(732,246)">
+    <rect width="300" height="84" class="card"/>
+    <text x="150" y="34" text-anchor="middle" class="card-title">Usage &amp; Scoring Contracts</text>
+    <text x="150" y="56" text-anchor="middle" class="card-text">actual minutes, realism, starter consistency</text>
+  </g>
+  <g transform="translate(1082,246)">
+    <rect width="270" height="84" class="card"/>
+    <text x="135" y="34" text-anchor="middle" class="card-title">Manual Availability Overrides</text>
+    <text x="135" y="56" text-anchor="middle" class="card-text">final player-status corrections</text>
+  </g>
+  <g transform="translate(1402,246)">
+    <rect width="290" height="84" class="card"/>
+    <text x="145" y="34" text-anchor="middle" class="card-title">Final Live Player Projection</text>
+    <text x="145" y="56" text-anchor="middle" class="card-text">accepted future-facing player output</text>
+  </g>
+
+  <path d="M 350 288 H 384" class="arrow"/>
+  <path d="M 690 288 H 724" class="arrow"/>
+  <path d="M 1040 288 H 1074" class="arrow"/>
+  <path d="M 1360 288 H 1394" class="arrow"/>
+
+  <text x="900" y="352" text-anchor="middle" class="note">Production contracts ensure minutes alone do not imply inflated fantasy-point forecasts without plausible scoring sources.</text>
+
+  <!-- Decision services -->
+  <g transform="translate(1130,446)">
+    <rect width="300" height="92" class="card"/>
+    <text x="150" y="36" text-anchor="middle" class="card-title">Future-fixture Eligibility Filter</text>
+    <text x="150" y="60" text-anchor="middle" class="card-text">only players with valid future fixtures</text>
+  </g>
+
+  <g transform="translate(1480,446)">
+    <rect width="270" height="92" class="card"/>
+    <text x="135" y="36" text-anchor="middle" class="card-title">General Transfer Targets</text>
+    <text x="135" y="58" text-anchor="middle" class="card-text">ranked players without</text>
+    <text x="135" y="76" text-anchor="middle" class="card-text">saved-squad context</text>
+  </g>
+
+  <g transform="translate(700,566)">
+    <rect width="500" height="110" class="card"/>
+    <text x="250" y="40" text-anchor="middle" class="card-title">Model-squad Decision Service</text>
+    <text x="250" y="64" text-anchor="middle" class="card-text">legality, bank, team cap, role reliability, projected gain,</text>
+    <text x="250" y="84" text-anchor="middle" class="card-text">advancement value, diversification</text>
+  </g>
+
+  <g transform="translate(170,576)">
+    <rect width="360" height="88" class="card"/>
+    <text x="180" y="36" text-anchor="middle" class="card-title">Stored Model Squad State</text>
+    <text x="180" y="60" text-anchor="middle" class="card-text">persisted squad, bank, transfer-window metadata</text>
+  </g>
+
+  <!-- Branches from final live projection -->
+  <text x="1460" y="398" text-anchor="middle" class="small-label">general targets branch</text>
+  <path d="M 1547 330 V 404 H 1280 V 438" class="arrow"/>
+  <path d="M 1438 492 H 1472" class="arrow"/>
+
+  <text x="1510" y="604" class="small-label" text-anchor="middle">model-squad branch</text>
+  <path d="M 1692 288 H 1788 V 610 H 1210" class="arrow"/>
+
+  <!-- Stored squad to decision service -->
+  <path d="M 538 620 H 692" class="arrow"/>
+
+  <!-- Recommendation and saved state -->
+  <g transform="translate(450,838)">
+    <rect width="390" height="96" class="card"/>
+    <text x="195" y="38" text-anchor="middle" class="card-title">Ranked Transfer Recommendations</text>
+    <text x="195" y="62" text-anchor="middle" class="card-text">proposed squad moves with projected gain</text>
+  </g>
+
+  <g transform="translate(910,838)">
+    <rect width="300" height="96" class="card"/>
+    <text x="150" y="38" text-anchor="middle" class="card-title">User-confirmed Transfers</text>
+    <text x="150" y="62" text-anchor="middle" class="card-text">accepted moves for the active window</text>
+  </g>
+
+  <g transform="translate(1280,826)">
+    <rect width="390" height="120" class="card"/>
+    <text x="195" y="42" text-anchor="middle" class="card-title">Stored Model Squad State</text>
+    <text x="195" y="66" text-anchor="middle" class="card-text">CSV = canonical squad membership and lineup roles</text>
+    <text x="195" y="86" text-anchor="middle" class="card-text">JSON = bank, history, metadata, synchronized player mirror</text>
+  </g>
+
+  <path d="M 950 684 V 788 H 645 V 830" class="arrow"/>
+  <path d="M 848 886 H 902" class="arrow"/>
+  <path d="M 1218 886 H 1272" class="arrow"/>
+
+  <!-- loop back -->
+  <path d="M 1475 818 V 744 H 90 V 620 H 162" class="arrow"/>
+  <text x="1110" y="738" class="small-label">next decision window</text>
+
+  <text x="900" y="986" text-anchor="middle" class="note">At tournament completion, future-fixture eligibility is empty and both actionable recommendation outputs return zero rows.</text>
+</svg>

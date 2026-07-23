@@ -30,6 +30,10 @@ Each model covered 1,775 player-round observations.
 
 The three-model appearance comparison covered the final four knockout groupings and 508 common player-round observations per model.
 
+![Leakage-safe evaluation flow](../assets/architecture/leakage-safe-evaluation.svg)
+
+Registered immutable pre-round snapshots were joined only to canonical actuals from the matching completed round before metrics and ranking diagnostics were produced.
+
 ## Primary six-round results
 
 | Model | Coverage | MAE | RMSE | Within 1 | Within 2 | Bias | Spearman |

@@ -16,6 +16,10 @@ prediction generated time <= fixture kickoff time
 
 Mutable post-tournament “latest” outputs were not accepted as historical evidence.
 
+![Leakage-safe evaluation flow](../assets/architecture/leakage-safe-evaluation.svg)
+
+The same frozen-evidence contract supported scoped round checkpoints and cumulative model comparison without regenerating historical predictions after results were known.
+
 ## Coverage
 
 | Scope | Valid predictions |

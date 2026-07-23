@@ -67,37 +67,9 @@ Mutable “current” outputs were kept separate from immutable historical evide
 
 ## Logical flow
 
-```mermaid
-flowchart LR
-    A[Live and official sources]
-    B[Ingestion and normalization]
-    C[(Canonical state)]
-    D[Match prediction services]
-    E[Player projection services]
-    F[Safety and eligibility contracts]
-    G[Immutable pre-round snapshots]
-    H[Fantasy decision workflows]
-    I[FastAPI APIs]
-    J[Next.js product surfaces]
-    K[Completed-round evaluation]
-    L[Ops and lifecycle health]
+![World Cup Fantasy Predictor system architecture](../assets/architecture/system-overview.svg)
 
-    A --> B
-    B --> C
-    C --> D
-    C --> E
-    D --> F
-    E --> F
-    F --> G
-    F --> H
-    G --> K
-    H --> I
-    D --> I
-    E --> I
-    K --> I
-    I --> J
-    I --> L
-```
+The diagram summarizes the public-safe production, evaluation, delivery, and operations boundaries used by the system.
 
 ## Key architectural boundaries
 

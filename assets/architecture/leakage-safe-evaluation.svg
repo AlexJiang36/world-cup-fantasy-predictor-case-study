@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="940" viewBox="0 0 1800 940" role="img" aria-labelledby="title desc">
+  <title id="title">Leakage-safe Evaluation</title>
+  <desc id="desc">A public-safe diagram showing leakage-safe evaluation through pre-round predictions, immutable snapshots, integrity validation, canonical actuals synchronization, snapshot-local evaluation, scoped round checkpoints, and cumulative dashboard and model comparison.</desc>
+  <defs>
+    <style>
+      .title { font: 700 34px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #111827; }
+      .subtitle { font: 400 17px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #374151; }
+      .lane-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #334155; }
+      .note { font: 400 15px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .card-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #1f2937; }
+      .card-text { font: 400 13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .lane { fill: #fbfdff; stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 8; rx: 24; }
+      .card { fill: #f8fbff; stroke: #adc3df; stroke-width: 2; rx: 18; }
+      .arrow { stroke: #7b8ea8; stroke-width: 2.35; fill: none; marker-end: url(#arrowhead); stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #7b8ea8; stroke-width: 2.35; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 9 3, 0 6" fill="#7b8ea8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="940" fill="#ffffff"/>
+
+  <text x="58" y="72" class="title">Leakage-safe Evaluation</text>
+  <line x1="58" y1="96" x2="150" y2="96" stroke="#7f98b8" stroke-width="6" stroke-linecap="round"/>
+  <text x="58" y="144" class="subtitle">Public-safe workflow for evaluating match and player forecasts only against the correct frozen pre-round evidence.</text>
+
+  <rect x="24" y="182" width="1752" height="184" class="lane"/>
+  <text x="56" y="214" class="lane-title">Before the round</text>
+
+  <rect x="24" y="396" width="1752" height="164" class="lane"/>
+  <text x="56" y="428" class="lane-title">After the round</text>
+
+  <rect x="24" y="590" width="1752" height="262" class="lane"/>
+  <text x="56" y="622" class="lane-title">Evaluation and reporting</text>
+
+  <!-- Top lane -->
+  <g transform="translate(96,244)">
+    <rect width="280" height="96" class="card"/>
+    <text x="140" y="40" text-anchor="middle" class="card-title">Pre-round Predictions</text>
+    <text x="140" y="64" text-anchor="middle" class="card-text">match and player model outputs</text>
+  </g>
+
+  <g transform="translate(474,244)">
+    <rect width="280" height="96" class="card"/>
+    <text x="140" y="40" text-anchor="middle" class="card-title">Immutable Snapshot</text>
+    <text x="140" y="64" text-anchor="middle" class="card-text">timestamped frozen evidence</text>
+  </g>
+
+  <g transform="translate(852,244)">
+    <rect width="330" height="96" class="card"/>
+    <text x="165" y="40" text-anchor="middle" class="card-title">Registry &amp; Integrity Validation</text>
+    <text x="165" y="64" text-anchor="middle" class="card-text">round identity, checksum, coverage</text>
+  </g>
+
+  <!-- Middle lane -->
+  <g transform="translate(372,430)">
+    <rect width="270" height="96" class="card"/>
+    <text x="135" y="40" text-anchor="middle" class="card-title">Matches Played</text>
+    <text x="135" y="64" text-anchor="middle" class="card-text">results become observable</text>
+  </g>
+
+  <g transform="translate(758,430)">
+    <rect width="360" height="96" class="card"/>
+    <text x="180" y="40" text-anchor="middle" class="card-title">Canonical Actuals Synchronized</text>
+    <text x="180" y="64" text-anchor="middle" class="card-text">fixtures, minutes, starts, fantasy points</text>
+  </g>
+
+  <!-- Bottom lane -->
+  <g transform="translate(326,676)">
+    <rect width="360" height="96" class="card"/>
+    <text x="180" y="40" text-anchor="middle" class="card-title">Snapshot-local Evaluation</text>
+    <text x="180" y="64" text-anchor="middle" class="card-text">predictions joined to matching actuals</text>
+  </g>
+
+  <g transform="translate(806,676)">
+    <rect width="330" height="96" class="card"/>
+    <text x="165" y="40" text-anchor="middle" class="card-title">Scoped Round Checkpoint</text>
+    <text x="165" y="64" text-anchor="middle" class="card-text">completed-round metrics and diagnostics</text>
+  </g>
+
+  <g transform="translate(1256,664)">
+    <rect width="420" height="120" class="card"/>
+    <text x="210" y="38" text-anchor="middle" class="card-title">Cumulative Dashboard &amp; Model Comparison</text>
+    <text x="210" y="72" text-anchor="middle" class="card-text">
+      <tspan x="210" dy="0">merge safe history across evaluated rounds</tspan>
+      <tspan x="210" dy="20">match and player performance views</tspan>
+    </text>
+  </g>
+
+  <!-- Top flow -->
+  <path d="M 384 292 H 466" class="arrow"/>
+  <path d="M 762 292 H 844" class="arrow"/>
+
+  <!-- Middle flow -->
+  <path d="M 650 478 H 750" class="arrow"/>
+
+  <!-- Routed inputs to evaluation: left / center / right -->
+  <path d="M 614 340 V 388 H 300 V 628" class="line"/>
+  <path d="M 938 526 V 628" class="line"/>
+  <path d="M 1018 340 V 388 H 1190 V 628" class="line"/>
+
+  <!-- Merge bus and single input arrow -->
+  <path d="M 300 628 H 1190" class="line"/>
+  <path d="M 506 628 V 668" class="arrow"/>
+
+  <!-- Bottom flow -->
+  <path d="M 694 724 H 798" class="arrow"/>
+  <path d="M 1144 724 H 1248" class="arrow"/>
+
+  <text x="900" y="896" text-anchor="middle" class="note">Only frozen pre-round predictions are evaluated; post-round regenerated forecasts are excluded from checkpoint and cumulative metrics.</text>
+</svg>

@@ -6,6 +6,10 @@ The fantasy layer converted predictions into constrained squad and transfer deci
 
 A high player projection was not automatically a valid recommendation.
 
+![Fantasy decision flow](../assets/architecture/fantasy-decision-flow.svg)
+
+The public-safe flow distinguishes general transfer targets from saved-squad decisions and shows how confirmed transfers update the persisted model squad for the next decision window.
+
 ## Decision constraints
 
 The decision system accounted for:

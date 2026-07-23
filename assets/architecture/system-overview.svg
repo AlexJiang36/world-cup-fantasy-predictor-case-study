@@ -1,81 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780" role="img" aria-labelledby="title desc">
-  <title id="title">World Cup Fantasy Predictor system architecture</title>
-  <desc id="desc">A layered diagram from live sources through canonical state, prediction services, snapshots, decision workflows, APIs, frontend, evaluation and operations.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="940" viewBox="0 0 1800 940" role="img" aria-labelledby="title desc">
+  <title id="title">World Cup Fantasy Predictor System Architecture</title>
+  <desc id="desc">Public-safe system architecture for the World Cup Fantasy Predictor showing data and production, evaluation and decision support, and delivery and operations.</desc>
   <defs>
     <style>
-      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 16; }
-      .group { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 8 6; rx: 22; }
-      .title { font: 700 28px Arial, sans-serif; fill: #111827; }
-      .label { font: 600 20px Arial, sans-serif; fill: #111827; text-anchor: middle; dominant-baseline: middle; }
-      .small { font: 400 16px Arial, sans-serif; fill: #374151; text-anchor: middle; }
-      .arrow { stroke: #374151; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .title { font: 700 34px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #111827; }
+      .subtitle { font: 400 17px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #374151; }
+      .lane-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #334155; }
+      .note { font: 400 15px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .card-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #1f2937; }
+      .card-text { font: 400 13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .lane { fill: #fbfdff; stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 8; rx: 24; }
+      .card { fill: #f8fbff; stroke: #adc3df; stroke-width: 2; rx: 18; }
+      .arrow { stroke: #7b8ea8; stroke-width: 2.35; fill: none; marker-end: url(#arrowhead); stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #7b8ea8; stroke-width: 2.35; fill: none; stroke-linecap: round; stroke-linejoin: round; }
     </style>
-    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
-      <polygon points="0 0, 12 4, 0 8" fill="#374151"/>
+    <marker id="arrowhead" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 9 3, 0 6" fill="#7b8ea8"/>
     </marker>
   </defs>
 
-  <rect x="20" y="20" width="1360" height="740" class="group"/>
-  <text x="700" y="60" class="title" text-anchor="middle">World Cup Fantasy Predictor — System Overview</text>
+  <rect x="0" y="0" width="1800" height="940" fill="#ffffff"/>
 
-  <rect x="70" y="115" width="220" height="100" class="box"/>
-  <text x="180" y="155" class="label">Live Sources</text>
-  <text x="180" y="185" class="small">fixtures, results, players</text>
+  <text x="58" y="72" class="title">System Architecture</text>
+  <line x1="58" y1="96" x2="150" y2="96" stroke="#7f98b8" stroke-width="6" stroke-linecap="round"/>
+  <text x="58" y="144" class="subtitle">Public-safe overview of the production, evaluation, and delivery flows used by the World Cup Fantasy Predictor.</text>
 
-  <rect x="350" y="115" width="240" height="100" class="box"/>
-  <text x="470" y="155" class="label">Ingestion</text>
-  <text x="470" y="185" class="small">normalize and validate</text>
+  <rect x="24" y="170" width="1752" height="270" class="lane"/>
+  <text x="56" y="202" class="lane-title">Data and production</text>
 
-  <rect x="650" y="115" width="260" height="100" class="box"/>
-  <text x="780" y="155" class="label">Canonical State</text>
-  <text x="780" y="185" class="small">PostgreSQL + contracts</text>
+  <rect x="24" y="456" width="1752" height="176" class="lane"/>
+  <text x="56" y="488" class="lane-title">Evaluation and decision support</text>
 
-  <rect x="970" y="115" width="260" height="100" class="box"/>
-  <text x="1100" y="155" class="label">Lifecycle Control</text>
-  <text x="1100" y="185" class="small">active / closeout / complete</text>
+  <rect x="24" y="650" width="1752" height="230" class="lane"/>
+  <text x="56" y="682" class="lane-title">Delivery and operations</text>
 
-  <path d="M290 165 L350 165" class="arrow"/>
-  <path d="M590 165 L650 165" class="arrow"/>
-  <path d="M910 165 L970 165" class="arrow"/>
+  <g transform="translate(34,260)">
+    <rect width="205" height="96" class="card"/>
+    <text x="102.5" y="40" text-anchor="middle" class="card-title">External Data Sources</text>
+    <text x="102.5" y="64" text-anchor="middle" class="card-text">fixtures · results · players</text>
+  </g>
 
-  <rect x="180" y="300" width="280" height="120" class="box"/>
-  <text x="320" y="340" class="label">Match Services</text>
-  <text x="320" y="372" class="small">outcomes, probabilities, scorelines</text>
+  <g transform="translate(300,260)">
+    <rect width="280" height="96" class="card"/>
+    <text x="140" y="40" text-anchor="middle" class="card-title">Refresh &amp; Orchestration</text>
+    <text x="140" y="64" text-anchor="middle" class="card-text">sync · normalize · coordinate</text>
+  </g>
 
-  <rect x="560" y="300" width="280" height="120" class="box"/>
-  <text x="700" y="340" class="label">Player Services</text>
-  <text x="700" y="372" class="small">minutes, fantasy points, ranking</text>
+  <g transform="translate(720,192)">
+    <rect width="260" height="96" class="card"/>
+    <text x="130" y="40" text-anchor="middle" class="card-title">PostgreSQL</text>
+    <text x="130" y="64" text-anchor="middle" class="card-text">stable relational state</text>
+  </g>
 
-  <rect x="940" y="300" width="280" height="120" class="box"/>
-  <text x="1080" y="340" class="label">Decision Services</text>
-  <text x="1080" y="372" class="small">squad, transfers, constraints</text>
+  <g transform="translate(720,316)">
+    <rect width="260" height="96" class="card"/>
+    <text x="130" y="40" text-anchor="middle" class="card-title">Canonical Actuals</text>
+    <text x="130" y="64" text-anchor="middle" class="card-text">completed fixture and player facts</text>
+  </g>
 
-  <path d="M780 215 L320 300" class="arrow"/>
-  <path d="M780 215 L700 300" class="arrow"/>
-  <path d="M780 215 L1080 300" class="arrow"/>
+  <g transform="translate(1020,260)">
+    <rect width="340" height="96" class="card"/>
+    <text x="170" y="40" text-anchor="middle" class="card-title">Match &amp; Player Model Pipelines</text>
+    <text x="170" y="64" text-anchor="middle" class="card-text">forecasting · projection · production contracts</text>
+  </g>
 
-  <rect x="110" y="510" width="280" height="120" class="box"/>
-  <text x="250" y="550" class="label">Frozen Snapshots</text>
-  <text x="250" y="582" class="small">pre-match provenance</text>
+  <g transform="translate(1460,192)">
+    <rect width="260" height="96" class="card"/>
+    <text x="130" y="34" text-anchor="middle" class="card-title">
+      <tspan x="130" dy="0">Immutable Pre-round</tspan>
+      <tspan x="130" dy="22">Snapshots</tspan>
+    </text>
+    <text x="130" y="74" text-anchor="middle" class="card-text">
+      <tspan x="130" dy="0">timestamped prediction</tspan>
+      <tspan x="130" dy="18">evidence</tspan>
+    </text>
+  </g>
 
-  <rect x="470" y="510" width="240" height="120" class="box"/>
-  <text x="590" y="550" class="label">Evaluation</text>
-  <text x="590" y="582" class="small">metrics and governance</text>
+  <g transform="translate(1460,316)">
+    <rect width="260" height="96" class="card"/>
+    <text x="130" y="40" text-anchor="middle" class="card-title">Mutable Live Artifacts</text>
+    <text x="130" y="64" text-anchor="middle" class="card-text">current predictions and projections</text>
+  </g>
 
-  <rect x="790" y="510" width="220" height="120" class="box"/>
-  <text x="900" y="550" class="label">FastAPI</text>
-  <text x="900" y="582" class="small">product and ops APIs</text>
+  <g transform="translate(650,486)">
+    <rect width="430" height="96" class="card"/>
+    <text x="215" y="40" text-anchor="middle" class="card-title">Leakage-safe Evaluation</text>
+    <text x="215" y="64" text-anchor="middle" class="card-text">actuals · frozen evidence · model comparison</text>
+  </g>
 
-  <rect x="1090" y="510" width="220" height="120" class="box"/>
-  <text x="1200" y="550" class="label">Next.js</text>
-  <text x="1200" y="582" class="small">product dashboards</text>
+  <g transform="translate(1090,486)">
+    <rect width="480" height="96" class="card"/>
+    <text x="240" y="40" text-anchor="middle" class="card-title">Fantasy Scoring &amp; Recommendation Layer</text>
+    <text x="240" y="64" text-anchor="middle" class="card-text">realism · availability · eligibility · squad constraints</text>
+  </g>
 
-  <path d="M320 420 L250 510" class="arrow"/>
-  <path d="M700 420 L250 510" class="arrow"/>
-  <path d="M250 630 L590 630" class="arrow"/>
-  <path d="M710 570 L790 570" class="arrow"/>
-  <path d="M1080 420 L900 510" class="arrow"/>
-  <path d="M1010 570 L1090 570" class="arrow"/>
+  <g transform="translate(70,730)">
+    <rect width="310" height="96" class="card"/>
+    <text x="155" y="40" text-anchor="middle" class="card-title">Refresh Manifest &amp; Ops Health</text>
+    <text x="155" y="64" text-anchor="middle" class="card-text">validation · lifecycle · closeout state</text>
+  </g>
 
-  <text x="700" y="705" class="small">Timestamped artifacts, registries, manifests, validation and checksums support every layer.</text>
+  <g transform="translate(430,708)">
+    <rect width="470" height="130" class="card"/>
+    <text x="235" y="34" text-anchor="middle" class="card-title">Accepted FastAPI Source Boundary</text>
+    <text x="235" y="70" text-anchor="middle" class="card-text">
+      <tspan x="235" dy="0">PostgreSQL · canonical actuals · mutable live artifacts</tspan>
+      <tspan x="235" dy="22">immutable snapshots · evaluation outputs · fantasy outputs</tspan>
+      <tspan x="235" dy="22">refresh manifest and ops health</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(970,730)">
+    <rect width="190" height="96" class="card"/>
+    <text x="95" y="40" text-anchor="middle" class="card-title">FastAPI</text>
+    <text x="95" y="64" text-anchor="middle" class="card-text">stable backend APIs</text>
+  </g>
+
+  <g transform="translate(1220,730)">
+    <rect width="220" height="96" class="card"/>
+    <text x="110" y="40" text-anchor="middle" class="card-title">Next.js API Proxies</text>
+    <text x="110" y="64" text-anchor="middle" class="card-text">frontend server routes</text>
+  </g>
+
+  <g transform="translate(1500,718)">
+    <rect width="190" height="120" class="card"/>
+    <text x="95" y="36" text-anchor="middle" class="card-title">
+      <tspan x="95" dy="0">Next.js</tspan>
+      <tspan x="95" dy="22">Product Surfaces</tspan>
+    </text>
+    <text x="95" y="90" text-anchor="middle" class="card-text">dashboards</text>
+  </g>
+
+  <!-- main flow -->
+  <path d="M 247 308 H 292" class="arrow"/>
+  <path d="M 588 308 H 1008" class="arrow"/>
+  <path d="M 588 308 H 650 V 240 H 708" class="arrow"/>
+  <path d="M 588 308 H 650 V 364 H 708" class="arrow"/>
+
+  <!-- split outputs from model pipelines with longer visible horizontal runs -->
+  <path d="M 1368 286 H 1410 V 240 H 1448" class="arrow"/>
+  <path d="M 1368 330 H 1410 V 364 H 1448" class="arrow"/>
+
+  <!-- canonical to evaluation -->
+  <path d="M 850 420 V 474" class="arrow"/>
+
+  <!-- right-side bus to fantasy -->
+  <path d="M 1728 240 H 1760" class="line"/>
+  <path d="M 1728 364 H 1760" class="line"/>
+  <path d="M 1760 240 V 520 H 1588" class="line"/>
+  <path d="M 1588 520 H 1580" class="arrow"/>
+
+  <!-- refresh to ops: follow the user-marked route -->
+  <path d="M 410 364 V 610 H 280 V 722" class="arrow"/>
+
+  <!-- staggered evaluation/fantasy into accepted boundary with gap above box -->
+  <path d="M 835 590 V 668 H 800 V 694" class="arrow"/>
+  <path d="M 1330 590 V 640 H 720 V 668 H 720 V 694" class="arrow"/>
+
+  <!-- delivery flow -->
+  <path d="M 388 778 H 420" class="arrow"/>
+  <path d="M 908 778 H 960" class="arrow"/>
+  <path d="M 1168 778 H 1210" class="arrow"/>
+  <path d="M 1448 778 H 1490" class="arrow"/>
+
+  <text x="900" y="906" text-anchor="middle" class="note">FastAPI serves reviewed data from the database, accepted artifacts, evaluation outputs, recommendation layers, and operations health.</text>
 </svg>

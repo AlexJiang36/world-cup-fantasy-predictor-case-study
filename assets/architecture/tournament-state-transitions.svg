@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="990" viewBox="0 0 1800 990" role="img" aria-labelledby="title desc">
+  <title id="title">Tournament State Transitions</title>
+  <desc id="desc">A public-safe diagram showing tournament progression, the operational lifecycle state machine, and final closeout for the World Cup Fantasy Predictor.</desc>
+  <defs>
+    <style>
+      .title { font: 700 34px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #111827; }
+      .subtitle { font: 400 17px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #374151; }
+      .lane-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #334155; }
+      .note { font: 400 14px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .card-title { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #1f2937; }
+      .card-text { font: 400 13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .small-label { font: 700 14px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #475569; }
+      .lane { fill: #fbfdff; stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 8; rx: 24; }
+      .card { fill: #f8fbff; stroke: #adc3df; stroke-width: 2; rx: 18; }
+      .diamond { fill: #f8fbff; stroke: #adc3df; stroke-width: 2; }
+      .arrow { stroke: #7b8ea8; stroke-width: 2.35; fill: none; marker-end: url(#arrowhead); stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #7b8ea8; stroke-width: 2.35; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 9 3, 0 6" fill="#7b8ea8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="990" fill="#ffffff"/>
+
+  <text x="58" y="72" class="title">Tournament State Transitions</text>
+  <line x1="58" y1="96" x2="150" y2="96" stroke="#7f98b8" stroke-width="6" stroke-linecap="round"/>
+  <text x="58" y="144" class="subtitle">Public-safe lifecycle for moving from active prediction windows to round closeout and final tournament shutdown.</text>
+
+  <rect x="24" y="182" width="1752" height="150" class="lane"/>
+  <text x="56" y="214" class="lane-title">Tournament progression</text>
+
+  <rect x="24" y="362" width="1752" height="430" class="lane"/>
+  <text x="56" y="394" class="lane-title">Operational lifecycle</text>
+
+  <rect x="24" y="822" width="1752" height="152" class="lane"/>
+  <text x="56" y="854" class="lane-title">Terminal and closeout</text>
+
+  <!-- Progression lane -->
+  <g transform="translate(108,238)">
+    <rect width="1568" height="60" class="card"/>
+    <text x="784" y="28" text-anchor="middle" class="card-title">Active-round loop spans the full tournament</text>
+    <text x="784" y="49" text-anchor="middle" class="card-text">Group Stage · Round of 32 · Round of 16 · Quarterfinal · Semifinal · Final</text>
+  </g>
+
+  <!-- Main top row, shifted right with bigger gaps -->
+  <g transform="translate(150,450)">
+    <rect width="290" height="96" class="card"/>
+    <text x="145" y="40" text-anchor="middle" class="card-title">Active Round</text>
+    <text x="145" y="64" text-anchor="middle" class="card-text">future fixtures and actionable products</text>
+  </g>
+
+  <g transform="translate(610,450)">
+    <rect width="330" height="96" class="card"/>
+    <text x="165" y="40" text-anchor="middle" class="card-title">Round Closeout</text>
+    <text x="165" y="64" text-anchor="middle" class="card-text">sync results, actuals, and frozen evaluation</text>
+  </g>
+
+  <g transform="translate(1120,426)">
+    <polygon class="diamond" points="110,0 220,60 110,120 0,60"/>
+    <text x="110" y="60" text-anchor="middle" class="card-title">Remaining</text>
+    <text x="110" y="82" text-anchor="middle" class="card-title">Fixtures?</text>
+  </g>
+
+
+  <!-- Notes above row 1 -->
+  <text x="295" y="426" text-anchor="middle" class="note">
+    <tspan x="295" dy="0">Includes live match predictions, player projections,</tspan>
+    <tspan x="295" dy="18">and recommendation outputs.</tspan>
+  </text>
+
+  <text x="775" y="426" text-anchor="middle" class="note">
+    <tspan x="775" dy="0">Completed results synchronized → canonical actuals rebuilt</tspan>
+    <tspan x="775" dy="18">→ frozen snapshot evaluated.</tspan>
+  </text>
+
+  <text x="1230" y="420" text-anchor="middle" class="note">another prediction window exists?</text>
+
+  <!-- Second row -->
+  <g transform="translate(330,626)">
+    <rect width="380" height="96" class="card"/>
+    <text x="190" y="40" text-anchor="middle" class="card-title">Next-round Preparation</text>
+    <text x="190" y="64" text-anchor="middle" class="card-text">project, apply contracts, freeze, validate</text>
+  </g>
+
+  <g transform="translate(1290,626)">
+    <rect width="320" height="96" class="card"/>
+    <text x="160" y="40" text-anchor="middle" class="card-title">Tournament Complete</text>
+    <text x="160" y="64" text-anchor="middle" class="card-text">zero future fixtures and zero future work</text>
+  </g>
+
+  <!-- Top row arrows -->
+  <path d="M 448 498 H 602" class="arrow"/>
+  <path d="M 948 498 H 1112" class="arrow"/>
+
+  <!-- Branches -->
+  <text x="1090" y="580" class="small-label">Yes</text>
+  <path d="M 1174 535 V 590 H 520 V 618" class="arrow"/>
+
+  <text x="1354" y="580" class="small-label">No</text>
+  <path d="M 1286 535 V 590 H 1450 V 618" class="arrow"/>
+
+  <!-- Loop back to active round -->
+  <path d="M 322 674 H 88 V 498 H 142" class="arrow"/>
+
+  <!-- Notes under row 2, split into two lines -->
+  <text x="520" y="748" text-anchor="middle" class="note">
+    <tspan x="520" dy="0">Next-round production projection → contracts</tspan>
+    <tspan x="520" dy="18">→ immutable snapshot → integrity checks.</tspan>
+  </text>
+
+  <text x="1450" y="748" text-anchor="middle" class="note">
+    <tspan x="1450" dy="0">Terminal mode disables future predictions, next-round snapshots,</tspan>
+    <tspan x="1450" dy="18">and actionable recommendations.</tspan>
+  </text>
+
+  <!-- Terminal lane -->
+  <g transform="translate(700,874)">
+    <rect width="430" height="60" class="card"/>
+    <text x="215" y="26" text-anchor="middle" class="card-title">Frozen Closeout State</text>
+    <text x="215" y="46" text-anchor="middle" class="card-text">final dashboards, inventory, and provenance</text>
+  </g>
+
+  <path d="M 1290 674 H 1180 V 904 H 1138" class="arrow"/>
+
+  <text x="900" y="956" text-anchor="middle" class="note">Only Active Round loops; Tournament Complete is terminal.</text>
+</svg>

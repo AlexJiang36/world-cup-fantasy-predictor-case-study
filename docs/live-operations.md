@@ -4,6 +4,10 @@
 
 The system supported three explicit lifecycle modes.
 
+![Tournament state transitions](../assets/architecture/tournament-state-transitions.svg)
+
+Only the active-round operating mode loops. Tournament-complete behavior is terminal and preserves accepted historical state without creating future work.
+
 ## Mode A — Tournament active
 
 While future fixtures remained, the pipeline could:
