@@ -34,6 +34,12 @@ The three-model appearance comparison covered the final four knockout groupings 
 
 Registered immutable pre-round snapshots were joined only to canonical actuals from the matching completed round before metrics and ranking diagnostics were produced.
 
+## Evaluation dashboard
+
+![Player-model evaluation dashboard with overall and final-round comparisons](../assets/screenshots/player-evaluation-full.png)
+
+The detailed view separates the production decision model, the latest holdout winner, and the winner for one completed round. Null cells remain visible when a model did not have a safe pre-round comparison for that scope.
+
 ## Primary six-round results
 
 | Model | Coverage | MAE | RMSE | Within 1 | Within 2 | Bias | Spearman |

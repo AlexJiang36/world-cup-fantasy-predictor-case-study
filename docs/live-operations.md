@@ -58,6 +58,10 @@ The operations surface exposed information such as:
 - current transition identity;
 - validation state.
 
+![Operations dashboard in tournament-complete mode](../assets/screenshots/operations-terminal.png)
+
+The terminal product view exposes public-safe API source paths, HTTP health, preserved production and evaluation models, refresh freshness, and the expected zero counts for future-facing outputs.
+
 ## Failure modes controlled
 
 ### Leakage

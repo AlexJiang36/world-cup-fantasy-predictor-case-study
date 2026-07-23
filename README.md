@@ -23,17 +23,36 @@ The project’s main achievement was not one prediction model. It was the engine
 
 ## Product screenshots
 
-Final public screenshots will be added after a privacy and redistribution review.
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assets/screenshots/match-predictions.png" alt="Semifinal match predictions with stored probabilities and scorelines" width="100%">
+      <br><strong>Match predictions.</strong> Stored semifinal forecasts with outcome probabilities, predicted scorelines, model identity, and run provenance.
+    </td>
+    <td width="50%" valign="top">
+      <img src="assets/screenshots/knockout-bracket.png" alt="Final knockout bracket with semifinal, final, third-place, and champion state" width="100%">
+      <br><strong>Knockout bracket.</strong> Actual and projected tournament paths converge into the final, third-place match, and champion state.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="assets/screenshots/model-squad-final.png" alt="Final persisted model squad and tournament-complete state" width="100%">
+      <br><strong>Model squad.</strong> The persisted 15-player squad remains available after the final transfer window closes.
+    </td>
+    <td width="50%" valign="top">
+      <img src="assets/screenshots/player-evaluation.png" alt="Player model evaluation with leakage-safe coverage notes and overall comparison" width="100%">
+      <br><strong>Player evaluation.</strong> Production, holdout, and challenger models are compared only across rounds with safe pre-round evidence.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
+      <img src="assets/screenshots/operations-terminal.png" alt="Operations dashboard showing healthy tournament-complete terminal state" width="100%">
+      <br><strong>Operations health.</strong> The terminal dashboard confirms preserved models and artifacts, zero future predictions, and zero actionable recommendations.
+    </td>
+  </tr>
+</table>
 
-Planned README highlights:
-
-- Operations dashboard
-- Match prediction history
-- Player evaluation
-- Model squad
-- Transfer targets
-
-Additional reviewed screenshots will be stored under [`assets/screenshots/`](assets/screenshots/).
+Additional reviewed product views are documented under [`assets/screenshots/`](assets/screenshots/) and the detailed case-study documents below.
 
 ## What the system does
 
@@ -232,7 +251,6 @@ Post-model contracts prevented known failure patterns such as high forecasts for
 - Starter-versus-substitute reporting was omitted because the available historical starter field was not reliable enough for final reporting.
 - A frozen transfer-versus-hold experiment was not available.
 - Raw or scraped data is not redistributed in this repository.
-- Public screenshots still require final privacy and rights review.
 
 See [Limitations and Future Work](docs/limitations-and-future-work.md).
 

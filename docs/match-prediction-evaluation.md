@@ -20,6 +20,12 @@ Mutable post-tournament “latest” outputs were not accepted as historical evi
 
 The same frozen-evidence contract supported scoped round checkpoints and cumulative model comparison without regenerating historical predictions after results were known.
 
+## Evaluation dashboard
+
+![Match-prediction evaluation dashboard](../assets/screenshots/match-evaluation.png)
+
+The product view combines the five-model comparison with semifinal diagnostics. It deliberately shows both a correct case and an incorrect case rather than presenting only successful predictions.
+
 ## Coverage
 
 | Scope | Valid predictions |

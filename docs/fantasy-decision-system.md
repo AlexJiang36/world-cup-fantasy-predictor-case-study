@@ -42,6 +42,10 @@ The system persisted a 15-player squad and tracked:
 
 Canonical player state and generated mirrors were validated for consistency.
 
+![Final stored model squad](../assets/screenshots/model-squad-final.png)
+
+The final product state preserves the complete squad, player roles, prices, total points, last-round scores, and an explicit zero-transfer terminal status.
+
 ### Transfer targets
 
 Transfer recommendations distinguished between:
@@ -51,6 +55,14 @@ Transfer recommendations distinguished between:
 - forced sales caused by elimination or no next fixture;
 - upgrades constrained by bank, team limits, and position;
 - role-aware priorities.
+
+#### Tournament-complete transfer surface
+
+![General transfer targets terminal state — goalkeepers and defenders](../assets/screenshots/transfer-targets-terminal-top.png)
+
+![General transfer targets terminal state — midfielders and forwards](../assets/screenshots/transfer-targets-terminal-bottom.png)
+
+With no future fixtures, the general-target surface stops producing actionable recommendations and presents final official fantasy-points leaders by position instead.
 
 ### Wildcard and multi-transfer planning
 
@@ -64,9 +76,19 @@ Team of the Round was an actuals-based product, not a prediction model.
 
 It used finalized player fantasy points after the round.
 
+![Final Team of the Round](../assets/screenshots/team-of-round.png)
+
+The final-round view selects a valid formation automatically and exposes both the grouped Best XI and the underlying player table.
+
 ### Golden Boot
 
 The Golden Boot surface combined scoring state with remaining opportunity and tournament placement.
+
+![Golden Boot ranking proxy](../assets/screenshots/golden-boot.png)
+
+![Golden Boot methodology and limitations](../assets/screenshots/golden-boot-methodology.png)
+
+The public methodology explicitly describes the ranking proxy, source limitations, and the distinction between a transparent leaderboard score and a calibrated probability model.
 
 ## Safety contracts
 
